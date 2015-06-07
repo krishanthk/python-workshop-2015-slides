@@ -219,10 +219,10 @@ build_lists: true
 - REPL: Read, Eval, Print, Loop
 - But, Python is interpreted!
     + We can run files with many lines of code:
-    + <pre class="prettyprint" data-lang="bash">
-        $:> python do_all_the_things.py
+    + <pre class="prettyprint" data-lang="cmd">
+        $> python do_all_the_things.py
         Started ... I have now done all the things
-        $:> 
+        $>
       </pre>
 - Other IDE's can also run our code for us
 
@@ -246,9 +246,11 @@ build_lists: true
 - I do not want to code everything I do from scratch
 - Leverage the power of open-sourced
 - `pip` a great tool for managing python packages
-    + <pre data-lang="bash">$:>pip install numpy</pre>
+    + <pre class="prettyprint" data-lang="cmd">$> pip install numpy</pre>
+
 ---
 title: Language Basics
+subtitle: Show me some of the things
 class: segue dark nobackground
 
 ---
@@ -302,6 +304,9 @@ build_lists: true
                 self.age = age
             def birth_year(self):
                 return 2015 - self.age</pre>
+    + <pre class="prettyprint" data-lang="python">
+        >>> jeb = Person("Jeb Springfield", 53)
+        >>> batman = Person("Bruce Wayne", 45)</pre>
 
 ---
 title: Language Basics
@@ -309,8 +314,6 @@ subtitle: Common Types of Objects
 
 - Classes:
     + <pre class="prettyprint" data-lang="python">
-        >>> jeb = Person("Jeb Springfield", 53)
-        >>> batman = Person("Bruce Wayne", 45)
         >>> print jeb.age
         53
         >>> print batman.name
@@ -377,18 +380,133 @@ subtitle: Strings
 ---
 title: Language Basics
 subtitle: Functions
+build_lists: true
 
-- <pre class="prettyprint" data-lang="python">
-    >>> def hello_world():
-    ...     print "Hello there, World!"     
-    >>> hello_world()
-    Hello there, World!
+- Functions can be called all on their own
+    + <pre class="prettyprint" data-lang="python">
+        >>> def hello_world():
+        ...     print "Hello there, World!"     
+        >>> hello_world()
+        Hello there, World!</pre>
+- Or they can be called with arguments
+    + <pre class="prettyprint" data-lang="python">
+        >>> def hello(val):
+        ...     print "Hello there, " + val + "!"
+        >>> hello("McMaster")
+        Hello there, McMaster!</pre>
 
-    >>> def hello(val):
-    ...     print "Hello there, " + val + "!"
-    >>> hello("McMaster")
-    Hello there, McMaster!</pre>
+---
+title: Language Basics
+subtitle: Control Flow
+build_lists: true
 
+- Code is composed of functions that do stuff
+- These functions need to be able to organize logically
+- Python comes equipped with the standard control blocks found elsewhere:
+    + <pre class="prettyprint">if/elif/else, for, while</pre>
+- It also comes with some unique ones:
+    + <pre class="prettyprint">with</pre>
+
+---
+title: Language Basics
+subtitle: Control Flow
+build_lists: true
+
+- if
+    + <pre class="prettyprint" data-lang="python">
+        should_i_do_it = True
+        if should_i_do_it:
+            print "It was done"
+        else:
+            print "It was not done"
+      </pre>
+
+---
+title: Language Basics
+subtitle: Control Flow
+build_lists: true
+
+- for
+    + <pre class="prettyprint" data-lang="python">
+        some_numbers = [4, 7, 2, 9]
+        for num in some_numbers:
+            print "Your number is " + num
+      </pre>
+    + <pre class="prettyprint" data-lang="python">
+        for i in range(5):
+            if i == 4:
+                break
+            else:
+                continue
+            print "I should never get called"
+      </pre>
+
+---
+title: Language Basics
+subtitle: Control Flow
+build_lists: true
+
+- while
+    + <pre class="prettyprint" data-lang="python">
+        my_flag = True
+        while my_flag:
+            result = check_something()
+            if result:
+                # Let's get out of here
+                my_flag = False
+      </pre>
+
+---
+title: Language Basics
+subtitle: Control Flow
+build_lists: true
+
+- while
+    + <pre class="prettyprint" data-lang="python">
+        while 1:
+            # Danger, this must be able to break
+            wait_a_while()
+            result = check_something()
+            if result:
+                # We're out
+                break
+            else:
+                continue
+            print "This should never get called"
+      </pre>
+
+---
+title: Language Basics
+subtitle: Control Flow
+build_lists: true
+
+- with
+    + <pre class="prettyprint" data-lang="python">
+        with open('file.txt', 'r') as f:
+            line = f.readline()
+            do_stuff_to_the_line(line)
+            print line
+      </pre>
+
+---
+title: Language Basics
+subtitle: Control Flow
+build_lists: true
+
+- try / except / else / finally
+    + <pre class="prettyprint" data-lang="python">
+        try:
+            try_something_risky()
+        except SpecificException as e:
+            log_the_error(e)
+        except:
+            log_the_error()
+        else:
+            success_reward()
+        finally:
+            run_rain_or_shine()
+      </pre>
+      
 ---
 title: Spyder
 subtitle: Let's go!

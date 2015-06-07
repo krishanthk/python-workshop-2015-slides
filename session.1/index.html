@@ -399,10 +399,10 @@ URL: https://code.google.com/p/io-2012-slides
 <li>REPL: Read, Eval, Print, Loop</li>
 <li>But, Python is interpreted!<ul class="build">
 <li>We can run files with many lines of code:</li>
-<li><pre class="prettyprint" data-lang="bash">
-    <mathjax>$:&gt; python do_all_the_things.py
+<li><pre class="prettyprint" data-lang="cmd">
+    <mathjax>$&gt; python do_all_the_things.py
     Started ... I have now done all the things
-    $</mathjax>:&gt; 
+    $</mathjax>&gt;
   </pre></li>
 </ul>
 </li>
@@ -438,7 +438,7 @@ URL: https://code.google.com/p/io-2012-slides
 <li>I do not want to code everything I do from scratch</li>
 <li>Leverage the power of open-sourced</li>
 <li><code>pip</code> a great tool for managing python packages<ul class="build">
-<li><pre data-lang="bash">$:&gt;pip install numpy</pre></li>
+<li><pre class="prettyprint" data-lang="cmd">$&gt; pip install numpy</pre></li>
 </ul>
 </li>
 </ul></article>
@@ -450,7 +450,7 @@ URL: https://code.google.com/p/io-2012-slides
     <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
     <hgroup class="auto-fadein">
       <h2>Language Basics</h2>
-      <h3></h3>
+      <h3>Show me some of the things</h3>
     </hgroup>
   
 </slide>
@@ -529,6 +529,9 @@ URL: https://code.google.com/p/io-2012-slides
             self.age = age
         def birth_year(self):
             return 2015 - self.age</pre></li>
+<li><pre class="prettyprint" data-lang="python">
+    &gt;&gt;&gt; jeb = Person("Jeb Springfield", 53)
+    &gt;&gt;&gt; batman = Person("Bruce Wayne", 45)</pre></li>
 </ul>
 </li>
 </ul></article>
@@ -544,8 +547,6 @@ URL: https://code.google.com/p/io-2012-slides
     <article ><ul>
 <li>Classes:<ul>
 <li><pre class="prettyprint" data-lang="python">
-    &gt;&gt;&gt; jeb = Person("Jeb Springfield", 53)
-    &gt;&gt;&gt; batman = Person("Bruce Wayne", 45)
     &gt;&gt;&gt; print jeb.age
     53
     &gt;&gt;&gt; print batman.name
@@ -647,23 +648,185 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Language Basics</h2>
       <h3>Functions</h3>
     </hgroup>
-    <article ><ul>
-<li>
-<p><pre class="prettyprint" data-lang="python">
+    <article ><ul class="build">
+<li>Functions can be called all on their own<ul class="build">
+<li><pre class="prettyprint" data-lang="python">
     &gt;&gt;&gt; def hello_world():
     ...     print "Hello there, World!"   <br />
     &gt;&gt;&gt; hello_world()
-    Hello there, World!</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>def hello(val):
-...     print "Hello there, " + val + "!"
-hello("McMaster")
-Hello there, McMaster!</pre></p>
-</blockquote>
-</blockquote>
-</blockquote>
+    Hello there, World!</pre></li>
+</ul>
+</li>
+<li>Or they can be called with arguments<ul class="build">
+<li><pre class="prettyprint" data-lang="python">
+    &gt;&gt;&gt; def hello(val):
+    ...     print "Hello there, " + val + "!"
+    &gt;&gt;&gt; hello("McMaster")
+    Hello there, McMaster!</pre></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Language Basics</h2>
+      <h3>Control Flow</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Code is composed of functions that do stuff</li>
+<li>These functions need to be able to organize logically</li>
+<li>Python comes equipped with the standard control blocks found elsewhere:<ul class="build">
+<li><pre class="prettyprint">if/elif/else, for, while</pre></li>
+</ul>
+</li>
+<li>It also comes with some unique ones:<ul class="build">
+<li><pre class="prettyprint">with</pre></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Language Basics</h2>
+      <h3>Control Flow</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>if<ul class="build">
+<li><pre class="prettyprint" data-lang="python">
+    should_i_do_it = True
+    if should_i_do_it:
+        print "It was done"
+    else:
+        print "It was not done"
+  </pre></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Language Basics</h2>
+      <h3>Control Flow</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>for<ul class="build">
+<li><pre class="prettyprint" data-lang="python">
+    some_numbers = [4, 7, 2, 9]
+    for num in some_numbers:
+        print "Your number is " + num
+  </pre></li>
+<li><pre class="prettyprint" data-lang="python">
+    for i in range(5):
+        if i == 4:
+            break
+        else:
+            continue
+        print "I should never get called"
+  </pre></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Language Basics</h2>
+      <h3>Control Flow</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>while<ul class="build">
+<li><pre class="prettyprint" data-lang="python">
+    my_flag = True
+    while my_flag:
+        result = check_something()
+        if result:
+            # Let's get out of here
+            my_flag = False
+  </pre></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Language Basics</h2>
+      <h3>Control Flow</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>while<ul class="build">
+<li><pre class="prettyprint" data-lang="python">
+    while 1:
+        # Danger, this must be able to break
+        wait_a_while()
+        result = check_something()
+        if result:
+            # We're out
+            break
+        else:
+            continue
+        print "This should never get called"
+  </pre></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Language Basics</h2>
+      <h3>Control Flow</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>with<ul class="build">
+<li><pre class="prettyprint" data-lang="python">
+    with open('file.txt', 'r') as f:
+        line = f.readline()
+        do_stuff_to_the_line(line)
+        print line
+  </pre></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Language Basics</h2>
+      <h3>Control Flow</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>try / except / else / finally<ul class="build">
+<li><pre class="prettyprint" data-lang="python">
+    try:
+        try_something_risky()
+    except SpecificException as e:
+        log_the_error(e)
+    except:
+        log_the_error()
+    else:
+        success_reward()
+    finally:
+        run_rain_or_shine()
+  </pre></li>
+</ul>
 </li>
 </ul></article>
  
