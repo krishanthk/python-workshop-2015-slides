@@ -1,6 +1,5 @@
 % title: Python Workshop for Grad Students
 % subtitle: 1 - Getting Started
-% date: June 8, 2015
 % author: Tim van Boxtel
 % thankyou: Thanks everyone for attending!
 % contact: <span>github</span> <a href="http://github.com/sunpowered">SunPowered</a>
@@ -8,12 +7,13 @@
 
 ---
 title: Contents
+subtitle: The Lineup
 
 - Introduction / Goals
 - PyHistory
 - Getting Help
-- Language Basics
 - Running a Program
+- Language Basics
 
 ---
 title: Introduction
@@ -90,18 +90,15 @@ build_lists: true
 ---
 title: PyHistory
 subtitle: The Zen of Python
-build_lists: true
 
-<pre class="prettyprint" language="python">
->>> import this
-The Zen of Python, by Tim Peters
-
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-...
-</pre>
+- <pre class="prettyprint" data-lang="python">
+    >>> import this
+    The Zen of Python, by Tim Peters
+    Beautiful is better than ugly.
+    Explicit is better than implicit.
+    Simple is better than complex.
+    Complex is better than complicated.
+    ...</pre>
 
 ---
 title: PyHistory
@@ -138,6 +135,79 @@ build_lists: true
 - All levels of questions
 - Gamification makes it fun for the users
 
+---
+title: Running a Program
+subtitle: The Interpreter and its Environment
+build_lists: True
+
+- Interpreter
+    + The core of the language
+    + Evaluates lines and blocks of code
+- Environment
+    + Builtins
+    + <pre data-lang="python">>>>len(dir(__builtins__))
+        145</pre>
+    + Locally installed third party packages are also available on the PATH
+    + <pre data-lang="python">>>> import sys
+        >>> print sys.path
+        ['',
+        '<syspath1>',
+        '<syspath2>',
+        ...]</pre>
+
+---
+title: Running a Program
+subtitle: Some Nomenclature
+build_lists: true
+
+- Module
+    + A single Python '.py' file.  This can be run on its own or imported by other modules.
+    + <pre class="prettyprint" data-lang-"python">import my_module</pre>
+- Package
+    + A namespace that bundles modules and other packages, designated with '.'
+    + Corresponds to a directory heierarchy
+    + <pre class="prettyprint" data-lang-"python">import my_package
+        my_package.my_function()
+        from my_package import my_module
+        my_module.another_function()</pre>
+    
+
+---
+title: Running a Program
+subtitle: REPL is hard
+build_lists: true
+
+- REPL: Read, Eval, Print, Loop
+- But, Python is interpreted!
+    + We can run files with many lines of code:
+    + <pre class="prettyprint" data-lang="bash">
+        $:> python do_all_the_things.py
+        Started ... I have now done all the things
+        $:> 
+      </pre>
+- Other IDE's can also run our code for us
+
+---
+title: Running a Program
+subtitle: Importing Other Packages
+build_lists: true
+
+Use other packages in your code
+
+- <pre class="prettyprint" data-lang="python">
+    import time
+    now = time.time()
+    now_minus_five = now - 5
+    print "5 seconds ago was " + now_minus_five</pre>
+---
+title: Running a Program
+subtitle: Using Other Packages
+build_lists: true
+
+- I do not want to code everything I do from scratch
+- Leverage the power of open-sourced
+- `pip` a great tool for managing python packages
+    + <pre data-lang="bash">$:>pip install numpy</pre>
 ---
 title: Language Basics
 class: segue dark nobackground
@@ -190,7 +260,9 @@ build_lists: true
         class Person(args):
             def \__init__(self, name, age):
                 self.name = name
-                self.age = age</pre>
+                self.age = age
+            def birth_year(self):
+                return 2015 - self.age</pre>
 
 ---
 title: Language Basics
@@ -198,12 +270,14 @@ subtitle: Common Types of Objects
 
 - Classes:
     + <pre class="prettyprint" data-lang="python">
-        >>> person1 = Person("Jeb Springfield", 53)
-        >>> person2 = Person("Batman", 45)
-        >>> print person1.age
+        >>> jeb = Person("Jeb Springfield", 53)
+        >>> batman = Person("Bruce Wayne", 45)
+        >>> print jeb.age
         53
-        >>> print person2.name
-        Batman</pre>
+        >>> print batman.name
+        Batman
+        >>> jeb.birth_year()
+        1962</pre>
 ---
 title: Language Basics
 subtitle: Numerics
@@ -213,7 +287,15 @@ subtitle: Numerics
     >>> print myint * 4
     12
     >>> print myint + 7
-    10</pre>
+    10
+    >>> myint - 2
+    1
+    >>> 3 / 2 # Division of ints rounds down, returns an int
+    1
+    >>> 3.0 / 2 # Division with a float in it returns a float
+    1.5
+    >>> 10 % 4 # %: Modulo
+    2</pre>
 ---
 title: Langugage Basics
 subtitle: Booleans
@@ -273,62 +355,7 @@ title: Running a Program
 subtitle: Components
 class: segue dark nobackground
 
----
-title: Running a Program
-subtitle: The Interpreter and its Environment
-build_lists: True
 
-- Interpreter
-    + The core of the language
-    + Evaluates lines and blocks of code
-- Environment
-    + Builtins
-    + <pre data-lang="python">>>>len(dir(__builtins__))
-        145</pre>
-    + Locally installed third party packages are also available on the PATH
-    + <pre data-lang="python">>>> import sys
-        >>> print sys.path
-        ['',
-        '<syspath1>',
-        '<syspath2>',
-        ...]</pre>
-
----
-title: Running a Program
-subtitle: REPL is hard
-build_lists: true
-
-- REPL: Read, Eval, Print, Loop
-- But, Python is interpreted!
-    + We can run files with many lines of code:
-    + <pre class="prettyprint" data-lang="bash">
-        $:> python do_all_the_things.py
-        Started ... I have now done all the things
-        $:> 
-      </pre>
-- Other IDE's can also run our code for us
-
----
-title: Running a Program
-subtitle: Importing Other Packages
-build_lists: true
-
-Use other packages in your code
-
-- <pre class="prettyprint" data-lang="python">
-    import time
-    now = time.time()
-    now_minus_five = now - 5
-    print "5 seconds ago was " + now_minus_five</pre>
----
-title: Running a Program
-subtitle: Using Other Packages
-build_lists: true
-
-- I do not want to code everything I do from scratch
-- Leverage the power of open-sourced
-- `pip` a great tool for managing python packages
-    + <pre data-lang="bash">$:>pip install numpy</pre>
 
 ---
 title: Spyder

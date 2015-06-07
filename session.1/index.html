@@ -73,25 +73,15 @@ URL: https://code.google.com/p/io-2012-slides
 <slide  >
   
     <hgroup>
-      <h2></h2>
-      <h3></h3>
-    </hgroup>
-    <article ></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
       <h2>Contents</h2>
-      <h3></h3>
+      <h3>The Lineup</h3>
     </hgroup>
     <article ><ul>
 <li>Introduction / Goals</li>
 <li>PyHistory</li>
 <li>Getting Help</li>
-<li>Language Basics</li>
 <li>Running a Program</li>
+<li>Language Basics</li>
 </ul></article>
  
 </slide>
@@ -220,16 +210,16 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>PyHistory</h2>
       <h3>The Zen of Python</h3>
     </hgroup>
-    <article ><pre class="prettyprint" language="python">
->>> import this
-The Zen of Python, by Tim Peters
-
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-...
-</pre></article>
+    <article ><ul>
+<li><pre class="prettyprint" data-lang="python">
+    &gt;&gt;&gt; import this
+    The Zen of Python, by Tim Peters
+    Beautiful is better than ugly.
+    Explicit is better than implicit.
+    Simple is better than complex.
+    Complex is better than complicated.
+    ...</pre></li>
+</ul></article>
  
 </slide>
 
@@ -281,6 +271,116 @@ Complex is better than complicated.
 <li>Correct answers upvoted and marked as solutions</li>
 <li>All levels of questions</li>
 <li>Gamification makes it fun for the users</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Running a Program</h2>
+      <h3>The Interpreter and its Environment</h3>
+    </hgroup>
+    <article ><ul>
+<li>Interpreter<ul>
+<li>The core of the language</li>
+<li>Evaluates lines and blocks of code</li>
+</ul>
+</li>
+<li>Environment<ul>
+<li>Builtins</li>
+<li><pre data-lang="python">&gt;&gt;&gt;len(dir(<strong>builtins</strong>))
+    145</pre></li>
+<li>Locally installed third party packages are also available on the PATH</li>
+<li><pre data-lang="python">&gt;&gt;&gt; import sys
+    &gt;&gt;&gt; print sys.path
+    ['',
+    '<syspath1>',
+    '<syspath2>',
+    ...]</pre></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Running a Program</h2>
+      <h3>Some Nomenclature</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Module<ul class="build">
+<li>A single Python '.py' file.  This can be run on its own or imported by other modules.</li>
+<li><pre class="prettyprint" data-lang-"python">import my_module</pre></li>
+</ul>
+</li>
+<li>Package<ul class="build">
+<li>A namespace that bundles modules and other packages, designated with '.'</li>
+<li>Corresponds to a directory heierarchy</li>
+<li><pre class="prettyprint" data-lang-"python">import my_package
+    my_package.my_function()
+    from my_package import my_module
+    my_module.another_function()</pre></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Running a Program</h2>
+      <h3>REPL is hard</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>REPL: Read, Eval, Print, Loop</li>
+<li>But, Python is interpreted!<ul class="build">
+<li>We can run files with many lines of code:</li>
+<li><pre class="prettyprint" data-lang="bash">
+    <mathjax>$:&gt; python do_all_the_things.py
+    Started ... I have now done all the things
+    $</mathjax>:&gt; 
+  </pre></li>
+</ul>
+</li>
+<li>Other IDE's can also run our code for us</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Running a Program</h2>
+      <h3>Importing Other Packages</h3>
+    </hgroup>
+    <article ><p>Use other packages in your code</p>
+<ul class="build">
+<li><pre class="prettyprint" data-lang="python">
+    import time
+    now = time.time()
+    now_minus_five = now - 5
+    print "5 seconds ago was " + now_minus_five</pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Running a Program</h2>
+      <h3>Using Other Packages</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>I do not want to code everything I do from scratch</li>
+<li>Leverage the power of open-sourced</li>
+<li><code>pip</code> a great tool for managing python packages<ul class="build">
+<li><pre data-lang="bash">$:&gt;pip install numpy</pre></li>
+</ul>
+</li>
 </ul></article>
  
 </slide>
@@ -366,7 +466,9 @@ Complex is better than complicated.
     class Person(args):
         def __init__(self, name, age):
             self.name = name
-            self.age = age</pre></li>
+            self.age = age
+        def birth_year(self):
+            return 2015 - self.age</pre></li>
 </ul>
 </li>
 </ul></article>
@@ -382,12 +484,14 @@ Complex is better than complicated.
     <article ><ul>
 <li>Classes:<ul>
 <li><pre class="prettyprint" data-lang="python">
-    &gt;&gt;&gt; person1 = Person("Jeb Springfield", 53)
-    &gt;&gt;&gt; person2 = Person("Batman", 45)
-    &gt;&gt;&gt; print person1.age
+    &gt;&gt;&gt; jeb = Person("Jeb Springfield", 53)
+    &gt;&gt;&gt; batman = Person("Bruce Wayne", 45)
+    &gt;&gt;&gt; print jeb.age
     53
-    &gt;&gt;&gt; print person2.name
-    Batman</pre></li>
+    &gt;&gt;&gt; print batman.name
+    Batman
+    &gt;&gt;&gt; jeb.birth_year()
+    1962</pre></li>
 </ul>
 </li>
 </ul></article>
@@ -406,7 +510,15 @@ Complex is better than complicated.
     &gt;&gt;&gt; print myint * 4
     12
     &gt;&gt;&gt; print myint + 7
-    10</pre></li>
+    10
+    &gt;&gt;&gt; myint - 2
+    1
+    &gt;&gt;&gt; 3 / 2 # Division of ints rounds down, returns an int
+    1
+    &gt;&gt;&gt; 3.0 / 2 # Division with a float in it returns a float
+    1.5
+    &gt;&gt;&gt; 10 % 4 # %: Modulo
+    2</pre></li>
 </ul></article>
  
 </slide>
@@ -505,91 +617,6 @@ Hello there, McMaster!</pre></p>
       <h3>Components</h3>
     </hgroup>
   
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Running a Program</h2>
-      <h3>The Interpreter and its Environment</h3>
-    </hgroup>
-    <article ><ul>
-<li>Interpreter<ul>
-<li>The core of the language</li>
-<li>Evaluates lines and blocks of code</li>
-</ul>
-</li>
-<li>Environment<ul>
-<li>Builtins</li>
-<li><pre data-lang="python">&gt;&gt;&gt;len(dir(<strong>builtins</strong>))
-    145</pre></li>
-<li>Locally installed third party packages are also available on the PATH</li>
-<li><pre data-lang="python">&gt;&gt;&gt; import sys
-    &gt;&gt;&gt; print sys.path
-    ['',
-    '<syspath1>',
-    '<syspath2>',
-    ...]</pre></li>
-</ul>
-</li>
-</ul></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Running a Program</h2>
-      <h3>REPL is hard</h3>
-    </hgroup>
-    <article ><ul class="build">
-<li>REPL: Read, Eval, Print, Loop</li>
-<li>But, Python is interpreted!<ul class="build">
-<li>We can run files with many lines of code:</li>
-<li><pre class="prettyprint" data-lang="bash">
-    <mathjax>$:&gt; python do_all_the_things.py
-    Started ... I have now done all the things
-    $</mathjax>:&gt; 
-  </pre></li>
-</ul>
-</li>
-<li>Other IDE's can also run our code for us</li>
-</ul></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Running a Program</h2>
-      <h3>Importing Other Packages</h3>
-    </hgroup>
-    <article ><p>Use other packages in your code</p>
-<ul class="build">
-<li><pre class="prettyprint" data-lang="python">
-    import time
-    now = time.time()
-    now_minus_five = now - 5
-    print "5 seconds ago was " + now_minus_five</pre></li>
-</ul></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Running a Program</h2>
-      <h3>Using Other Packages</h3>
-    </hgroup>
-    <article ><ul class="build">
-<li>I do not want to code everything I do from scratch</li>
-<li>Leverage the power of open-sourced</li>
-<li><code>pip</code> a great tool for managing python packages<ul class="build">
-<li><pre data-lang="bash">$:&gt;pip install numpy</pre></li>
-</ul>
-</li>
-</ul></article>
- 
 </slide>
 
 <slide class="segue dark nobackground" >
