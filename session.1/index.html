@@ -314,18 +314,33 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Running a Program</h2>
       <h3>The Interpreter and its Environment</h3>
     </hgroup>
-    <article ><ul>
-<li>Interpreter<ul>
+    <article ><ul class="build">
+<li>Interpreter<ul class="build">
 <li>The core of the language</li>
 <li>Evaluates lines and blocks of code</li>
 </ul>
 </li>
-<li>Environment<ul>
+<li>Environment<ul class="build">
 <li>Builtins</li>
 <li><pre data-lang="python">&gt;&gt;&gt;len(dir(<strong>builtins</strong>))
     145</pre></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Running a Program</h2>
+      <h3>The Interpreter and its Environment</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Environment:<ul class="build">
 <li>Locally installed third party packages are also available on the PATH</li>
-<li><pre data-lang="python">&gt;&gt;&gt; import sys
+<li><pre class="prettyprint" data-lang="python">
+    &gt;&gt;&gt; import sys
     &gt;&gt;&gt; print sys.path
     ['',
     '<syspath1>',
@@ -349,10 +364,22 @@ URL: https://code.google.com/p/io-2012-slides
 <li><pre class="prettyprint" data-lang-"python">import my_module</pre></li>
 </ul>
 </li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Running a Program</h2>
+      <h3>Some Nomenclature</h3>
+    </hgroup>
+    <article ><ul class="build">
 <li>Package<ul class="build">
 <li>A namespace that bundles modules and other packages, designated with '.'</li>
-<li>Corresponds to a directory heierarchy</li>
-<li><pre class="prettyprint" data-lang-"python">import my_package
+<li>Corresponds with a directory heierarchy</li>
+<li><pre class="prettyprint" data-lang-"python">
+    import my_package
     my_package.my_function()
     from my_package import my_module
     my_module.another_function()</pre></li>

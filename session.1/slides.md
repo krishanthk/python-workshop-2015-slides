@@ -162,7 +162,7 @@ class: segue dark nobackground
 ---
 title: Running a Program
 subtitle: The Interpreter and its Environment
-build_lists: True
+build_lists: true
 
 - Interpreter
     + The core of the language
@@ -171,8 +171,16 @@ build_lists: True
     + Builtins
     + <pre data-lang="python">>>>len(dir(__builtins__))
         145</pre>
+
+---
+title: Running a Program
+subtitle: The Interpreter and its Environment
+build_lists: true
+
+- Environment:
     + Locally installed third party packages are also available on the PATH
-    + <pre data-lang="python">>>> import sys
+    + <pre class="prettyprint" data-lang="python">
+        >>> import sys
         >>> print sys.path
         ['',
         '<syspath1>',
@@ -187,10 +195,17 @@ build_lists: true
 - Module
     + A single Python '.py' file.  This can be run on its own or imported by other modules.
     + <pre class="prettyprint" data-lang-"python">import my_module</pre>
+
+---
+title: Running a Program
+subtitle: Some Nomenclature
+build_lists: true
+
 - Package
     + A namespace that bundles modules and other packages, designated with '.'
-    + Corresponds to a directory heierarchy
-    + <pre class="prettyprint" data-lang-"python">import my_package
+    + Corresponds with a directory heierarchy
+    + <pre class="prettyprint" data-lang-"python">
+        import my_package
         my_package.my_function()
         from my_package import my_module
         my_module.another_function()</pre>
