@@ -70,7 +70,7 @@ class: img-top-center
 build_lists: true
 
 - First developed by Guido van Rossum
-- <img src="figures/Guido.jpg"/>
+- <img style="width: 200px;" src="figures/Guido.jpg"/>
 
 ---
 title: PyHistory
@@ -100,6 +100,8 @@ build_lists: true
 - PEP -- Python Enhancement proposals
     + <a href="https://www.python.org/dev/peps/">https://www.python.org/dev/peps/</a>
 - Freely available design specs
+- Well defined code patterns and style guides:
+    + ie. <a href="https://www.python.org/dev/peps/pep-0008/">PEP8</a>
 
 ---
 title: PyHistory
