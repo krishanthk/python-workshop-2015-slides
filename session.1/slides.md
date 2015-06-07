@@ -55,7 +55,7 @@ Let's all make sure we have our workspaces organized
 - Workshop Folder
 - Fork the workshop code repository on Github
 - Clone your own fork locally into the workshop folder
-- Add my repository as a parent
+- Add my repository as a remote called `parent`
 - Set Workspace in Spyder to Worksop Folder
 - Import local workshop code folder into Spyder
 
