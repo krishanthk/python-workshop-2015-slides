@@ -155,6 +155,12 @@ build_lists: true
 
 ---
 title: Running a Program
+subtitle: Components
+class: segue dark nobackground
+
+
+---
+title: Running a Program
 subtitle: The Interpreter and its Environment
 build_lists: True
 
@@ -369,13 +375,6 @@ subtitle: Functions
     Hello there, McMaster!</pre>
 
 ---
-title: Running a Program
-subtitle: Components
-class: segue dark nobackground
-
-
-
----
 title: Spyder
 subtitle: Let's go!
 class: segue dark nobackground
@@ -393,13 +392,6 @@ Next week:
 - Extending with other libraries
 - Writing Scripts with arguments / flags
 
----
-title: Next Session
-subtitle: If time allows
-build_lists: true
-
-- Intro to numpy
-- ipython installation
 
 ---
 title: Thanks!
