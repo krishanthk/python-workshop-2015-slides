@@ -183,8 +183,8 @@ build_lists: true
         >>> import sys
         >>> print sys.path
         ['',
-        '<syspath1>',
-        '<syspath2>',
+        '/sys/path/1',
+        '/sys/path/2',
         ...]</pre>
 
 ---
@@ -517,7 +517,7 @@ title: Next Session
 subtitle: Going with the flow
 build_lists: true
 
-Next week:
+Next Session:
 
 - Classes
 - Exception Handling
