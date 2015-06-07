@@ -29,9 +29,9 @@ build_lists: true
 The code for this workshop is located online:
 
 - Slides: 
-    + <a href="http://github.com/SunPowered/python-workshop-2015-slides">http://github.com/SunPowered/python-workshop-2015-slides</a>
+    + <a href="http://github.com/SunPowered/python-workshop-2015-slides">http://tinyurl.com/macegs-python-2015-slides</a>
 - Code: 
-    + <a href="http://github.com/SunPowered/python-workshop-2015">http://github.com/SunPowered/python-workshop-2015</a>
+    + <a href="http://github.com/SunPowered/python-workshop-2015">http://tinyurl.com/macegs-python-2015</a>
 ---
 title: Introduction
 subtitle: Goals
@@ -506,7 +506,7 @@ build_lists: true
         finally:
             run_rain_or_shine()
       </pre>
-      
+
 ---
 title: Spyder
 subtitle: Let's go!
