@@ -10,6 +10,7 @@ title: Contents
 subtitle: The Lineup
 
 - Introduction / Goals
+- System SetUp
 - PyHistory
 - Getting Help
 - Running a Program
@@ -45,6 +46,20 @@ By the end of the session, you will:
 -  Work with the Spyder development environment
 
 ---
+title: Setting Up
+subtitle: Get all the things
+build_lists:true
+
+Let's all make sure we have our workspaces organized
+
+- Workshop Folder
+- Fork the workshop code repository on Github
+- Clone your own fork locally into the workshop folder
+- Add my repository as a parent
+- Set Workspace in Spyder to Worksop Folder
+- Import local workshop code folder into Spyder
+
+---
 title: PyHistory
 class: segue dark nobackground
 
@@ -65,6 +80,16 @@ build_lists: true
 - First release in 1989
 - Python 2.0 released in 2000, focus on community backed process
 - Python 3.0 released in 2008, backwards incompatible
+
+---
+title: PyHistory
+subtitle: The scourge of Python 3 (sort of)
+build_lists: true
+
+- The latest version, first released in 2008
+- Backwards incompatible, in order to solve some longer standing 'issues'
+- Disparity of new users vs legacy users
+- As yet, somewhat unresolved, we really should be moving there eventually
 
 
 ---
@@ -100,15 +125,6 @@ subtitle: The Zen of Python
     Complex is better than complicated.
     ...</pre>
 
----
-title: PyHistory
-subtitle: The scourge of Python 3 (sort of)
-build_lists: true
-
-- The latest version, first released in 2008
-- Backwards incompatible, in order to solve some longer standing 'issues'
-- Disparity of new users vs legacy users
-- As yet, somewhat unresolved, we really should be moving there eventually
 
 ---
 title: Getting Help
