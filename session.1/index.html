@@ -1,0 +1,677 @@
+<!--
+slidedeck: A modification of the Google IO 2012 HTML5 slide template
+URL: https://github.com/rmcgibbo/slidedeck
+
+Based on https://github.com/francescolaffi/elastic-google-io-slides, and
+ultimately:
+
+Google IO 2012 HTML5 Slide Template
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahe <lukem@google.com>
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Python Workshop for Grad Students</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+   <link rel="shortcut icon" href=" favicon.ico"/> 
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="all" href="theme/css/custom.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides", src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js"></script>
+
+
+  <!-- MathJax support  -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    showProcessingMessages: false,
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    TeX: {
+      extensions: ["color.js"]
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <div style="display:hidden">
+  \[
+    \definecolor{data}{RGB}{18,110,213}
+    \definecolor{unknown}{RGB}{217,86,16}
+    \definecolor{learned}{RGB}{175,114,176}
+  \]
+  </div>
+
+</head>
+
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+<slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+
+    <h1> Python Workshop for Grad Students</h1>
+    <h2> 1 - Getting Started</h2>
+    <p> Tim van Boxtel</p>
+  </hgroup>
+</slide>
+
+
+<slide  >
+  
+    <hgroup>
+      <h2></h2>
+      <h3></h3>
+    </hgroup>
+    <article ></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Contents</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Introduction / Goals</li>
+<li>PyHistory</li>
+<li>Getting Help</li>
+<li>Language Basics</li>
+<li>Running a Program</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>Introduction</h2>
+      <h3>Who is this guy?</h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Introduction</h2>
+      <h3>Workshop Code</h3>
+    </hgroup>
+    <article ><p>The code for this workshop is located online:</p>
+<ul class="build">
+<li>Slides: <ul class="build">
+<li><a href="http://github.com/SunPowered/python-workshop-2015-slides">http://github.com/SunPowered/python-workshop-2015-slides</a></li>
+</ul>
+</li>
+<li>Code: <ul class="build">
+<li><a href="http://github.com/SunPowered/python-workshop-2015">http://github.com/SunPowered/python-workshop-2015</a></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Introduction</h2>
+      <h3>Goals</h3>
+    </hgroup>
+    <article ><p>By the end of the session, you will:</p>
+<ul class="build">
+<li>Understand Python syntax</li>
+<li>Have learned primitive object types</li>
+<li>Grasp built in operators and control flow</li>
+<li>Create simple functions</li>
+<li>Work with the Spyder development environment</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>PyHistory</h2>
+      <h3></h3>
+    </hgroup>
+  
+</slide>
+
+<slide class="img-top-center" >
+  
+    <hgroup>
+      <h2>PyHistory</h2>
+      <h3>Humble Beginnings</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>First developed by Guido van Rossum</li>
+<li><img src="figures/Guido.jpg"/></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>PyHistory</h2>
+      <h3>Release History</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>First release in 1989</li>
+<li>Python 2.0 released in 2000, focus on community backed process</li>
+<li>Python 3.0 released in 2008, backwards incompatible</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>PyHistory</h2>
+      <h3>PEPs</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>PEP -- Python Enhancement proposals<ul class="build">
+<li><a href="https://www.python.org/dev/peps/">https://www.python.org/dev/peps/</a></li>
+</ul>
+</li>
+<li>Freely available design specs</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>PyHistory</h2>
+      <h3>The Python Software Foundation</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>A NFP committed to promoting and advancing the Python software language<ul class="build">
+<li><a href="https://www.python.org/psf-landing/">https://www.python.org/psf-landing/</a></li>
+</ul>
+</li>
+<li>Owns IP</li>
+<li>Organizes conferences (PyCon)</li>
+<li>Contributes to Python's overall awesomeness</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>PyHistory</h2>
+      <h3>The Zen of Python</h3>
+    </hgroup>
+    <article ><pre class="prettyprint" language="python">
+>>> import this
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+...
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>PyHistory</h2>
+      <h3>The scourge of Python 3 (sort of)</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>The latest version, first released in 2008</li>
+<li>Backwards incompatible, in order to solve some longer standing 'issues'</li>
+<li>Disparity of new users vs legacy users</li>
+<li>As yet, somewhat unresolved, we really should be moving there eventually</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>Getting Help</h2>
+      <h3>Useful Resources</h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Getting Help</h2>
+      <h3>Python Docs</h3>
+    </hgroup>
+    <article ><p>All core documentation available online at <a href="https://docs.python.org/2.7/">https://docs.python.org/2.7/</a></p>
+<p>Great reference for all levels</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Getting Help</h2>
+      <h3>Stackoverflow</h3>
+    </hgroup>
+    <article ><p><a href="http://stackoverflow.com/">http://stackoverflow.com/</a></p>
+<ul class="build">
+<li>Social based question/answer community for programming languages</li>
+<li>Correct answers upvoted and marked as solutions</li>
+<li>All levels of questions</li>
+<li>Gamification makes it fun for the users</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>Language Basics</h2>
+      <h3></h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Language Basics</h2>
+      <h3>The Python Object</h3>
+    </hgroup>
+    <article ><p>Everything is an object!</p>
+<ul class="build">
+<li>Python is largely type agnostic</li>
+<li>Many object types can share methods (or overwrite!)</li>
+<li>Gives much of Python it's <em>magic</em></li>
+</ul></article>
+ 
+</slide>
+
+<slide class="tight-article" >
+  
+    <hgroup>
+      <h2>Language Basics</h2>
+      <h3>Common Types of Objects</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Numerics<ul class="build">
+<li><pre>int, float, long</pre></li>
+</ul>
+</li>
+<li>Booleans:<ul class="build">
+<li><pre>True, False, None</pre></li>
+</ul>
+</li>
+<li>Mappings:<ul class="build">
+<li><pre>str, list, tuple, dict, set</pre></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Language Basics</h2>
+      <h3>Common Types of Objects</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Functions:<ul class="build">
+<li><pre>max, min, ...</pre></li>
+<li><pre class="prettyprint" data-lang="python">
+    def my_function(arguments):
+        ... # Do some stuff
+        return val
+    &gt;&gt;&gt; ret = my_function("Home")
+    &gt;&gt;&gt; ret2 = my_function(2)</pre></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Language Basics</h2>
+      <h3>Common Types of Objects</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Classes:<ul class="build">
+<li><pre class="prettyprint" data-lang="python">
+    class Person(args):
+        def __init__(self, name, age):
+            self.name = name
+            self.age = age</pre></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Language Basics</h2>
+      <h3>Common Types of Objects</h3>
+    </hgroup>
+    <article ><ul>
+<li>Classes:<ul>
+<li><pre class="prettyprint" data-lang="python">
+    &gt;&gt;&gt; person1 = Person("Jeb Springfield", 53)
+    &gt;&gt;&gt; person2 = Person("Batman", 45)
+    &gt;&gt;&gt; print person1.age
+    53
+    &gt;&gt;&gt; print person2.name
+    Batman</pre></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Language Basics</h2>
+      <h3>Numerics</h3>
+    </hgroup>
+    <article ><ul>
+<li><pre class="prettyprint" data-lang="python">
+    &gt;&gt;&gt; myint = int(3.0)
+    &gt;&gt;&gt; print myint * 4
+    12
+    &gt;&gt;&gt; print myint + 7
+    10</pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Langugage Basics</h2>
+      <h3>Booleans</h3>
+    </hgroup>
+    <article ><ul>
+<li><pre  class="prettyprint" data-lang="python">
+    &gt;&gt;&gt; mybool = (True or False) | (True and True)
+    &gt;&gt;&gt; print mybool
+    True
+    &gt;&gt;&gt; print not mybool
+    False</pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Language Basics</h2>
+      <h3>Mappings</h3>
+    </hgroup>
+    <article ><ul>
+<li><pre  class="prettyprint" data-lang="python">
+    &gt;&gt;&gt; mylist = [1,2,3,4]
+    &gt;&gt;&gt; mylist.append(5)
+    &gt;&gt;&gt; print mylist
+    [1, 2, 3, 4, 5]
+    &gt;&gt;&gt; print mylist[1]
+    2
+    &gt;&gt;&gt; print mylist[1:3]
+    [2, 3, 4]
+    &gt;&gt;&gt; mylist.pop(1)
+    2
+    &gt;&gt;&gt; print mylist
+    [1, 3, 4, 5]</pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Language Basics</h2>
+      <h3>Strings</h3>
+    </hgroup>
+    <article ><ul>
+<li><pre class="prettyprint" data-lang="python">
+    &gt;&gt;&gt; mystr = "Hello there"
+    &gt;&gt;&gt; print mystr
+    Hello there
+    &gt;&gt;&gt; mystr[2]
+    'l'</pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Language Basics</h2>
+      <h3>Functions</h3>
+    </hgroup>
+    <article ><ul>
+<li>
+<p><pre class="prettyprint" data-lang="python">
+    &gt;&gt;&gt; def hello_world():
+    ...     print "Hello there, World!"   <br />
+    &gt;&gt;&gt; hello_world()
+    Hello there, World!</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>def hello(val):
+...     print "Hello there, " + val + "!"
+hello("McMaster")
+Hello there, McMaster!</pre></p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>Running a Program</h2>
+      <h3>Components</h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Running a Program</h2>
+      <h3>The Interpreter and its Environment</h3>
+    </hgroup>
+    <article ><ul>
+<li>Interpreter<ul>
+<li>The core of the language</li>
+<li>Evaluates lines and blocks of code</li>
+</ul>
+</li>
+<li>Environment<ul>
+<li>Builtins</li>
+<li><pre data-lang="python">&gt;&gt;&gt;len(dir(<strong>builtins</strong>))
+    145</pre></li>
+<li>Locally installed third party packages are also available on the PATH</li>
+<li><pre data-lang="python">&gt;&gt;&gt; import sys
+    &gt;&gt;&gt; print sys.path
+    ['',
+    '<syspath1>',
+    '<syspath2>',
+    ...]</pre></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Running a Program</h2>
+      <h3>REPL is hard</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>REPL: Read, Eval, Print, Loop</li>
+<li>But, Python is interpreted!<ul class="build">
+<li>We can run files with many lines of code:</li>
+<li><pre class="prettyprint" data-lang="bash">
+    <mathjax>$:&gt; python do_all_the_things.py
+    Started ... I have now done all the things
+    $</mathjax>:&gt; 
+  </pre></li>
+</ul>
+</li>
+<li>Other IDE's can also run our code for us</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Running a Program</h2>
+      <h3>Importing Other Packages</h3>
+    </hgroup>
+    <article ><p>Use other packages in your code</p>
+<ul class="build">
+<li><pre class="prettyprint" data-lang="python">
+    import time
+    now = time.time()
+    now_minus_five = now - 5
+    print "5 seconds ago was " + now_minus_five</pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Running a Program</h2>
+      <h3>Using Other Packages</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>I do not want to code everything I do from scratch</li>
+<li>Leverage the power of open-sourced</li>
+<li><code>pip</code> a great tool for managing python packages<ul class="build">
+<li><pre data-lang="bash">$:&gt;pip install numpy</pre></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>Spyder</h2>
+      <h3>Let's go!</h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Next Session</h2>
+      <h3>Going with the flow</h3>
+    </hgroup>
+    <article ><p>Next week:</p>
+<ul class="build">
+<li>Classes</li>
+<li>Exception Handling</li>
+<li>Important Builtin Libraries</li>
+<li>Extending with other libraries</li>
+<li>Writing Scripts with arguments / flags</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Next Session</h2>
+      <h3>If time allows</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Intro to numpy</li>
+<li>ipython installation</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>Thanks!</h2>
+      <h3>Any ?'s</h3>
+    </hgroup>
+  
+</slide>
+
+
+<slide class="thank-you-slide segue nobackground">
+  <!-- <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside> -->
+  <article class="flexbox vleft auto-fadein">
+    <h2> Thanks everyone for attending!</h2>
+    <p></p>
+  </article>
+  <p data-config-contact class="auto-fadein"> <span>github</span> <a href="http://github.com/sunpowered">SunPowered</a></p>
+  </p>
+</slide>
+
+<slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-56093198-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
