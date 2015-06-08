@@ -317,7 +317,7 @@ subtitle: Common Types of Objects
         >>> print jeb.age
         53
         >>> print batman.name
-        Batman
+        Bruce Wayne
         >>> jeb.birth_year()
         1962</pre>
 ---
@@ -361,7 +361,7 @@ subtitle: Mappings
     >>> print mylist[1]
     2
     >>> print mylist[1:3]
-    [2, 3, 4]
+    [2, 3]
     >>> mylist.pop(1)
     2
     >>> print mylist
