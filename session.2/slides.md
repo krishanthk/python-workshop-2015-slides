@@ -59,9 +59,9 @@ build_lists: true
 - <pre class="prettyprint" data-lang="python">
     class Volkswagon(Car):
     """ The people's car"""
-    def __init__(self, **kwargs):
+    def \_\_init\_\_(self, \*\*kwargs):
         kwargs['manufacturer'] = 'VW'
-        super(Volkswagon, self).__init__(**kwargs)
+        super(Volkswagon, self).\_\_init\_\_(\*\*kwargs)
   </pre>
 - <pre class="prettyprint" data-lang="python">
     >>> my_vw = Volkswagon(colour="red", num_doors=2)
@@ -79,7 +79,7 @@ build_lists: true
 - <pre class="prettyprint" data-lang="python">
     >>> myint = 5
     >>> type(myint)
-    <type 'int'>
+    type 'int'
   </pre>
 
 ---
@@ -183,7 +183,7 @@ build_lists: true
 - <pre class="prettyprint" data-lang="python">
     def analyze_the_data(data):
         ... Analyze all the data ...
-    if \_\_name\_\_ == \_\_main\_\_:
+    if \_\_name\_\_ == '\_\_main\_\_':
         # This condition is met only when the file is being run explicitly
         print "You called?"
         # Do the things
@@ -211,7 +211,7 @@ build_lists: true
 - The script arguments are available in `sys.argv`, and you can roll your own argument parser if you wish
 - <pre class="prettyprint" data-lang="python">
     ...
-    if \_\_name\_\_ == \_\_main\_\_:
+    if \_\_name\_\_ == '\_\_main\_\_':
         import sys
         print sys.argv
         options = parse_the_args(sys.argv)
@@ -227,7 +227,7 @@ build_lists: true
     def main(options):
         #  do all the things with the options
         ... 
-    if \_\_name\_\_ == \_\_main\_\_:
+    if \_\_name\_\_ == '\_\_main\_\_':
         import argparse
         parser = argparse.ArgumentParser("my_script_name")
         parser.add_argument('--file', help="Use a file for the things")
