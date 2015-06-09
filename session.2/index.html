@@ -1,0 +1,309 @@
+<!--
+slidedeck: A modification of the Google IO 2012 HTML5 slide template
+URL: https://github.com/rmcgibbo/slidedeck
+
+Based on https://github.com/francescolaffi/elastic-google-io-slides, and
+ultimately:
+
+Google IO 2012 HTML5 Slide Template
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahe <lukem@google.com>
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Python Workshop for Grad Students</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+   <link rel="shortcut icon" href=" favicon.ico"/> 
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="all" href="theme/css/custom.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides", src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js"></script>
+
+
+  <!-- MathJax support  -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    showProcessingMessages: false,
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    TeX: {
+      extensions: ["color.js"]
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <div style="display:hidden">
+  \[
+    \definecolor{data}{RGB}{18,110,213}
+    \definecolor{unknown}{RGB}{217,86,16}
+    \definecolor{learned}{RGB}{175,114,176}
+  \]
+  </div>
+
+</head>
+
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+<slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+
+    <h1> Python Workshop for Grad Students</h1>
+    <h2> 2 - Advanced Topics</h2>
+    <p> Tim van Boxtel</p>
+  </hgroup>
+</slide>
+
+
+<slide  >
+  
+    <hgroup>
+      <h2>Contents</h2>
+      <h3>The Lineup</h3>
+    </hgroup>
+    <article ><ul>
+<li>Classes and Exceptions</li>
+<li>The <code>os</code> module</li>
+<li>Times and Dates</li>
+<li>Working with files</li>
+<li>Scripts and Argument Parsing</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>Classes</h2>
+      <h3>The objects have become oriented</h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Classes</h2>
+      <h3>So much <i>self</i></h3>
+    </hgroup>
+    <article ><p>Remember the class?</p>
+<ul class="build">
+<li><pre class="prettyprint" data-lang="python">
+    class Car(object):
+        """ All of the Cars """
+        def <strong>init</strong>(self, manufacturer=None, colour=None, 
+                     num_doors=None, horsepower=None):
+            self.manufacturer = manufacturer or 'unknown manufacturer'
+            self.colour = colour or 'unknown colour'
+            self.horsepower = horsepower or 'unknown'
+            self.num_doors = num_doors or 4
+        def is_sedan(self):
+            " Is this car a sedan? "
+            return self.num_doors == 4
+  </pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Classes</h2>
+      <h3>On your feet!</h3>
+    </hgroup>
+    <article ><p>Think fast! What object type does the method <code>is_sedan()</code> return?</p>
+<ul class="build">
+<li>It's a <code>bool</code>  :-)</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Classes</h2>
+      <h3>Waiting for the inheritance</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Classes can be <em>parents</em> of other classes</li>
+<li><pre class="prettyprint" data-lang="python">
+    class Volkswagon(Car):
+    """ The people's car"""
+    def <strong>init</strong>(self, <strong>kwargs):
+        kwargs['manufacturer'] = 'VW'
+        super(Volkswagon, self).__init__(</strong>kwargs)
+  </pre></li>
+<li><pre class="prettyprint" data-lang="python">
+    &gt;&gt;&gt; my_vw = Volkswagon(colour="red", num_doors=2)
+    &gt;&gt;&gt; my_vw.is_sedan()
+    False
+  </pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Classes</h2>
+      <h3>All the Types</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>It is something helpful to check what type your variables are</li>
+<li>Use <code>type</code></li>
+<li><pre class="prettyprint" data-lang="python">
+    &gt;&gt;&gt; myint = 5
+    &gt;&gt;&gt; type(myint)
+    <type 'int'>
+  </pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Classes</h2>
+      <h3>Are you instantiated?</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Instantiated classes are unique versions of that class</li>
+<li>Does it have a serial number?  Instantiate it!</li>
+<li>Check parent/child heierarchy with <code>isinstance</code> and <code>issubclass</code></li>
+<li><pre class="prettyprint" data-lang="python">
+    &gt;&gt;&gt; issubclass(Volkswagon, Car)
+    True
+    &gt;&gt;&gt; isinstance(my_vw, Car):
+    True
+  </pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Exceptions</h2>
+      <h3>Shut it all down</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Occasionally, reality interferes</li>
+<li>Code doesn't always run as you expect, <code>Exceptions</code> are thrown</li>
+<li><pre class="prettyprint" data-lang="python">
+    &gt;&gt;&gt; 3[5]
+    Traceback (most recent call last):
+    File "stdin", line 1, in module
+    TypeError: 'int' object has no attribute '__getitem__'<br />
+  </pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Exceptions</h2>
+      <h3>Go with the flow</h3>
+    </hgroup>
+    <article ><p>We can inherit from <code>Exception</code> for our own purposes:</p>
+<ul class="build">
+<li>
+<p><pre class="prettyprint" data-lang="python">class BaseException(Exception):
+    """A project wide Exception class"""
+    pass</p>
+<p>class ConnectionError(BaseException):
+    """Connections were broken"""
+    pass  </p>
+<p>class DatabaseError(BaseException):
+    """Database is whack"""
+    pass</pre></p>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Useful Builtins</h2>
+      <h3>import os</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Lots of great platform specific info and functions</li>
+<li><code>os.path</code> - Maybe most useful part?</li>
+<li>Helps write code to be cross platform</li>
+<li><code>getcwd()</code> gets the current working directory</li>
+<li><pre class="prettyprint" data-lang="python">
+    &gt;&gt;&gt; import os
+    &gt;&gt;&gt; print os.getcwd()
+    '/path/to/where/im/at'</pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Useful Builtins</h2>
+      <h3>os.path</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Patches the annoying problem of system paths across all platforms</li>
+<li>Ahem, <sm>Windows</sm></li>
+<li><pre class="prettyprint" data-lang="python">
+      &gt;&gt;&gt; print os.path.join('dir1', 'dir2', 'file.txt')
+      'dir/dir2/file.txt'</pre></li>
+<li>Also has handy functions for splitting and manipulating the path</li>
+</ul></article>
+ 
+</slide>
+
+
+<slide class="thank-you-slide segue nobackground">
+  <!-- <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside> -->
+  <article class="flexbox vleft auto-fadein">
+    <h2> Thanks everyone for attending!</h2>
+    <p></p>
+  </article>
+  <p data-config-contact class="auto-fadein"> <span>github</span> <a href="http://github.com/sunpowered">SunPowered</a></p>
+  </p>
+</slide>
+
+<slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-56093198-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
