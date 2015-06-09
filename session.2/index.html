@@ -274,6 +274,120 @@ URL: https://code.google.com/p/io-2012-slides
  
 </slide>
 
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>Scripts and Arguments</h2>
+      <h3>Go Python Go</h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Scripts and Arguments</h2>
+      <h3>Run It</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Modules can be imported in other code, or run explicitly from the command line (or IDE)</li>
+<li><pre class="prettyprint" data-lang="cmd">
+    <mathjax>$&gt; python my_script.py
+    Doing all your things ... Done.
+    $</mathjax>&gt; 
+  </pre></li>
+<li>When invoked like this, we call these <em>scripts</em></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Scripts and Arguments</h2>
+      <h3>What in the __main__?</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>How do we tell that the file is being run as a script?</li>
+<li>A somewhat ugly yet ubiquitous solution</li>
+<li><pre class="prettyprint" data-lang="python">
+    def analyze_the_data(data):
+        ... Analyze all the data ...
+    if __name__ == __main__:
+        # This condition is met only when the file is being run explicitly
+        print "You called?"
+        # Do the things
+        data = get_the_data()
+        analyze_the_data(data)
+  </pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Scripts and Arguments</h2>
+      <h3>Flexible scripts with arguments</h3>
+    </hgroup>
+    <article ><ul>
+<li>Often, scripts are written to automate some tedious task, and might be used in any number of ways</li>
+<li>We need a way to handle these variations.  Let's use arguments</li>
+<li><pre class="prettyprint" data-lang="cmd">
+    <mathjax>$&gt; python my_script.py -v --file='/path/to/file'
+    I am reading the file '/path/to/file'
+    Done!
+    $</mathjax>&gt;
+  </pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Scripts and Arguments</h2>
+      <h3>sys.argv</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>The script arguments are available in <code>sys.argv</code>, and you can roll your own argument parser if you wish</li>
+<li><pre class="prettyprint" data-lang="python">
+    ...
+    if __name__ == __main__:
+        import sys
+        print sys.argv
+        options = parse_the_args(sys.argv)
+        do_the_things(options)
+  </pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Scripts and Arguments</h2>
+      <h3>argparse</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>I prefer to use the one that is given, <code>argparse.ArgumentParser</code></li>
+<li><pre class="prettyprint" data-lang="python">
+    def main(options):
+        #  do all the things with the options
+        ... 
+    if __name__ == __main__:
+        import argparse
+        parser = argparse.ArgumentParser("my_script_name")
+        parser.add_argument('--file', help="Use a file for the things")
+        parser.add_argument('-v', action="store_true", 
+                            dest='verbose', help='Tell me more things')
+        options = parser.parse_args()
+        main(options)</pre></li>
+</ul></article>
+ 
+</slide>
+
 
 <slide class="thank-you-slide segue nobackground">
   <!-- <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside> -->

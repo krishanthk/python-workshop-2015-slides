@@ -156,3 +156,87 @@ build_lists: true
       'dir/dir2/file.txt'</pre>
 - Also has handy functions for splitting and manipulating the path
 
+---
+title: Scripts and Arguments
+subtitle: Go Python Go
+class: segue dark nobackground
+
+---
+title: Scripts and Arguments
+subtitle: Run It
+build_lists: true
+
+- Modules can be imported in other code, or run explicitly from the command line (or IDE)
+- <pre class="prettyprint" data-lang="cmd">
+    $> python my_script.py
+    Doing all your things ... Done.
+    $> 
+  </pre>
+- When invoked like this, we call these *scripts*
+
+---
+title: Scripts and Arguments
+subtitle: What in the __main__?
+build_lists: true
+
+- How do we tell that the file is being run as a script?
+- A somewhat ugly yet ubiquitous solution
+- <pre class="prettyprint" data-lang="python">
+    def analyze_the_data(data):
+        ... Analyze all the data ...
+    if \_\_name\_\_ == \_\_main\_\_:
+        # This condition is met only when the file is being run explicitly
+        print "You called?"
+        # Do the things
+        data = get_the_data()
+        analyze_the_data(data)
+  </pre>
+
+---
+title: Scripts and Arguments
+subtitle: Flexible scripts with arguments
+build_list: true
+
+- Often, scripts are written to automate some tedious task, and might be used in any number of ways
+- We need a way to handle these variations.  Let's use arguments
+- <pre class="prettyprint" data-lang="cmd">
+    $> python my_script.py -v --file='/path/to/file'
+    I am reading the file '/path/to/file'
+    Done!
+    $>
+  </pre>
+
+---
+title: Scripts and Arguments
+subtitle: sys.argv
+build_lists: true
+
+- The script arguments are available in `sys.argv`, and you can roll your own argument parser if you wish
+- <pre class="prettyprint" data-lang="python">
+    ...
+    if \_\_name\_\_ == \_\_main\_\_:
+        import sys
+        print sys.argv
+        options = parse_the_args(sys.argv)
+        do_the_things(options)
+  </pre>
+
+---
+title: Scripts and Arguments
+subtitle: argparse
+build_lists: true
+
+- I prefer to use the one that is given, `argparse.ArgumentParser`
+- <pre class="prettyprint" data-lang="python">
+    def main(options):
+        #  do all the things with the options
+        ... 
+    if \_\_name\_\_ == \_\_main\_\_:
+        import argparse
+        parser = argparse.ArgumentParser("my_script_name")
+        parser.add_argument('--file', help="Use a file for the things")
+        parser.add_argument('-v', action="store_true", 
+                            dest='verbose', help='Tell me more things')
+        options = parser.parse_args()
+        main(options)</pre>
+
