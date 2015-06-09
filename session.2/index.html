@@ -432,6 +432,118 @@ URL: https://code.google.com/p/io-2012-slides
  
 </slide>
 
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>Dates and Times</h2>
+      <h3>Tick Tock</h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Dates and Times</h2>
+      <h3>Apples to Apples</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>If you think about it, our system of time is complicated for computers</li>
+<li>01/06/15 | June 1, 2015 | 1 Jun 15</li>
+<li>12:34pm | 18:30 | 6:55am</li>
+<li>We really can't do math with that:</li>
+<li>What is 34 days before July 15?</li>
+<li>How many minutes are between Aug 2, 4:34pm and Sept 15, 8:45am?</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Dates and Times</h2>
+      <h3>datetime</h3>
+    </hgroup>
+    <article ><p>This is a long standing problem, with a long standing solution</p>
+<ul class="build">
+<li>The <code>UNIX Epoch</code>:</li>
+<li>The dawn of all time, according to computers</li>
+<li>Acts as a common reference point</li>
+<li>January 1, 1970 12:00am</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Dates and Times</h2>
+      <h3>datetime</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>The timestamp:</li>
+<li>The number of seconds since the UNIX Epoch.</li>
+<li><pre class="prettyprint" data-lang="python">
+      import time
+      now = time.time()
+      print now</pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Dates and Times</h2>
+      <h3>datetime</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>The <code>datetime</code> package interfaces the computer timestamp with humans</li>
+<li><pre class="prettyprint" data-lang="python">
+    &gt;&gt;&gt; import datetime
+    &gt;&gt;&gt; now = datetime.datetime.now()
+    &gt;&gt;&gt; print now
+    2015-06-01 21:50:56.498831</pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Dates and Times</h2>
+      <h3>datetime.timedelta</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li><code>datetime.timedelta</code>:</li>
+<li>To be able to compute time differences between <code>datetime.datetime</code> objects (dt's)</li>
+<li><pre class="prettyprint" data-lang="python">
+    &gt;&gt;&gt; my_bday = datetime.datetime(1950, 03, 04, 4, 59)
+    &gt;&gt;&gt; my_age = now - my_bday
+    &gt;&gt;&gt; print my_age.days / 365
+    65</pre> </li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Dates and Times</h2>
+      <h3>Datetime Formatting</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Different regions / people have different preferences for their date/time representation</li>
+<li>Datetime objects have the <code>strftime</code> method, which takes a formatting string </li>
+<li><pre class="prettyprint" data-lang="python">
+    print now.strftime("%A %b %d, %Y")</pre></li>
+<li>Check the docs for all the format codes</li>
+<li><code>strptime</code> also available, takes a string and returns a <code>dt</code></li>
+</ul></article>
+ 
+</slide>
+
 
 <slide class="thank-you-slide segue nobackground">
   <!-- <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside> -->

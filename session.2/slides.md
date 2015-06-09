@@ -269,3 +269,80 @@ build_lists: true
     with open('/my/error/logs.txt', 'a') as f:
         log_the_error()</pre>
 
+---
+title: Dates and Times
+subtitle: Tick Tock
+class: segue dark nobackground
+
+---
+title: Dates and Times
+subtitle: Apples to Apples
+build_lists: true
+
+- If you think about it, our system of time is complicated for computers
+- 01/06/15 | June 1, 2015 | 1 Jun 15
+- 12:34pm | 18:30 | 6:55am
+- We really can't do math with that:
+  + What is 34 days before July 15?
+  + How many minutes are between Aug 2, 4:34pm and Sept 15, 8:45am?
+
+---
+title: Dates and Times
+subtitle: datetime
+build_lists: true
+
+This is a long standing problem, with a long standing solution
+
+- The `UNIX Epoch`:
+  + The dawn of all time, according to computers
+  + Acts as a common reference point
+  + January 1, 1970 12:00am
+
+---
+title: Dates and Times
+subtitle: datetime
+build_lists: true
+
+- The timestamp:
+  + The number of seconds since the UNIX Epoch.
+  + <pre class="prettyprint" data-lang="python">
+      import time
+      now = time.time()
+      print now</pre>
+
+---
+title: Dates and Times
+subtitle: datetime
+build_lists: true
+
+- The `datetime` package interfaces the computer timestamp with humans
+- <pre class="prettyprint" data-lang="python">
+    >>> import datetime
+    >>> now = datetime.datetime.now()
+    >>> print now
+    2015-06-01 21:50:56.498831</pre>
+
+---
+title: Dates and Times
+subtitle: datetime.timedelta
+build_lists: true
+
+- `datetime.timedelta`:
+  + To be able to compute time differences between `datetime.datetime` objects (dt's)
+  + <pre class="prettyprint" data-lang="python">
+    >>> my_bday = datetime.datetime(1950, 03, 04, 4, 59)
+    >>> my_age = now - my_bday
+    >>> print my_age.days / 365
+    65</pre> 
+
+---
+title: Dates and Times
+subtitle: Datetime Formatting
+build_lists: true
+
+- Different regions / people have different preferences for their date/time representation
+- Datetime objects have the `strftime` method, which takes a formatting string 
+- <pre class="prettyprint" data-lang="python">
+    print now.strftime("%A %b %d, %Y")</pre>
+- Check the docs for all the format codes
+- `strptime` also available, takes a string and returns a `dt`
