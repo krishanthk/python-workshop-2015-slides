@@ -170,8 +170,7 @@ build_lists: true
 - <pre class="prettyprint" data-lang="cmd">
     $> python my_script.py
     Doing all your things ... Done.
-    $> 
-  </pre>
+    $> </pre>
 - When invoked like this, we call these *scripts*
 
 ---
@@ -189,8 +188,7 @@ build_lists: true
         print "You called?"
         # Do the things
         data = get_the_data()
-        analyze_the_data(data)
-  </pre>
+        analyze_the_data(data)</pre>
 
 ---
 title: Scripts and Arguments
@@ -203,8 +201,7 @@ build_list: true
     $> python my_script.py -v --file='/path/to/file'
     I am reading the file '/path/to/file'
     Done!
-    $>
-  </pre>
+    $></pre>
 
 ---
 title: Scripts and Arguments
@@ -218,8 +215,7 @@ build_lists: true
         import sys
         print sys.argv
         options = parse_the_args(sys.argv)
-        do_the_things(options)
-  </pre>
+        do_the_things(options)</pre>
 
 ---
 title: Scripts and Arguments
@@ -239,4 +235,37 @@ build_lists: true
                             dest='verbose', help='Tell me more things')
         options = parser.parse_args()
         main(options)</pre>
+
+---
+title: Working With Files
+subtitle: From the I to the O
+class: segue dark nobackground
+
+---
+title: Working With Files
+subtitle: The file object
+build_lists: true
+
+- We interact with most filetypes in the same way
+- <pre class="prettyprint" data-lang="python">
+    with open('/my/data/file.csv', 'r') as f:
+        # Do your things with f
+        for line in f:
+            process_line(line)</pre>
+
+---
+title: Working With Files
+subtitle: Writing looks similar
+build_lists: true
+
+- A file is opened writable with a write flag, `w`
+- <pre class="prettyprint" data-lang="python">
+    with open('/my/data/analysis.txt', 'w') as f:
+        # Write your things to f
+        for line in data:
+            f.writeline(str(line))</pre>
+- e.g. Append a log file, `a`
+- <pre class="prettyprint" data-lang="python">
+    with open('/my/error/logs.txt', 'a') as f:
+        log_the_error()</pre>
 
