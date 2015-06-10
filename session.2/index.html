@@ -145,9 +145,9 @@ URL: https://code.google.com/p/io-2012-slides
 <li><pre class="prettyprint" data-lang="python">
     class Volkswagon(Car):
     """ The people's car"""
-    def <strong>init</strong>(self, <strong>kwargs):
+    def __init__(self, **kwargs):
         kwargs['manufacturer'] = 'VW'
-        super(Volkswagon, self).__init__(</strong>kwargs)
+        super(Volkswagon, self).__init__(**kwargs)
   </pre></li>
 <li><pre class="prettyprint" data-lang="python">
     &gt;&gt;&gt; my_vw = Volkswagon(colour="red", num_doors=2)
@@ -170,7 +170,7 @@ URL: https://code.google.com/p/io-2012-slides
 <li><pre class="prettyprint" data-lang="python">
     &gt;&gt;&gt; myint = 5
     &gt;&gt;&gt; type(myint)
-    <type 'int'>
+    type 'int'
   </pre></li>
 </ul></article>
  
@@ -313,7 +313,7 @@ URL: https://code.google.com/p/io-2012-slides
 <li><pre class="prettyprint" data-lang="python">
     def analyze_the_data(data):
         ... Analyze all the data ...
-    if __name__ == __main__:
+    if __name__ == '__main__':
         # This condition is met only when the file is being run explicitly
         print "You called?"
         # Do the things
@@ -351,7 +351,7 @@ URL: https://code.google.com/p/io-2012-slides
 <li>The script arguments are available in <code>sys.argv</code>, and you can roll your own argument parser if you wish</li>
 <li><pre class="prettyprint" data-lang="python">
     ...
-    if __name__ == __main__:
+    if __name__ == '__main__':
         import sys
         print sys.argv
         options = parse_the_args(sys.argv)
@@ -372,7 +372,7 @@ URL: https://code.google.com/p/io-2012-slides
     def main(options):
         #  do all the things with the options
         ... 
-    if __name__ == __main__:
+    if __name__ == '__main__':
         import argparse
         parser = argparse.ArgumentParser("my_script_name")
         parser.add_argument('--file', help="Use a file for the things")
