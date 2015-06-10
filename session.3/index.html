@@ -1,0 +1,299 @@
+<!--
+slidedeck: A modification of the Google IO 2012 HTML5 slide template
+URL: https://github.com/rmcgibbo/slidedeck
+
+Based on https://github.com/francescolaffi/elastic-google-io-slides, and
+ultimately:
+
+Google IO 2012 HTML5 Slide Template
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahe <lukem@google.com>
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Python Workshop for Grad Students</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+   <link rel="shortcut icon" href=" favicon.ico"/> 
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="all" href="theme/css/custom.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides", src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js"></script>
+
+
+  <!-- MathJax support  -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    showProcessingMessages: false,
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    TeX: {
+      extensions: ["color.js"]
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <div style="display:hidden">
+  \[
+    \definecolor{data}{RGB}{18,110,213}
+    \definecolor{unknown}{RGB}{217,86,16}
+    \definecolor{learned}{RGB}{175,114,176}
+  \]
+  </div>
+
+</head>
+
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+<slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+
+    <h1> Python Workshop for Grad Students</h1>
+    <h2> 3 - Data Analysis & Visualisation</h2>
+    <p> Tim van Boxtel</p>
+  </hgroup>
+</slide>
+
+
+<slide  >
+  
+    <hgroup>
+      <h2>Contents</h2>
+      <h3>The Line Up</h3>
+    </hgroup>
+    <article ><ul>
+<li>Numpy</li>
+<li>Matplotlib</li>
+<li>Scipy</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>Numpy</h2>
+      <h3>Numerical Python</h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Numpy</h2>
+      <h3>Lists Of Data</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>A single Python object is useful</li>
+<li>1000 similar Python objects in a row is wasteful</li>
+<li>numpy leverages C code to create efficient data structures</li>
+<li><pre class="prettyprint" data-lang="python">
+      import numpy as np
+      # An array
+      my_arr = np.arange(100)</pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Numpy</h2>
+      <h3>Enhanced Lists</h3>
+    </hgroup>
+    <article ><p>A numpy array is multidimensional:</p>
+<ul class="build">
+<li>50x1 -&gt; 3x5x5x10</li>
+<li><pre class="prettyprint" data-lang="python">
+      &gt;&gt;&gt; my_big_array = np.ones((3, 5, 5, 10))
+      &gt;&gt;&gt; my_big_array.shape
+      (3, 5, 5, 10)
+      &gt;&gt;&gt; my_big_array.size
+      750</pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Numpy</h2>
+      <h3>Find me by my index</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Arrays are nested, accessed via subsequent indexing</li>
+<li><pre class="prettyprint" data-lang="python">
+      &gt;&gt;&gt; my_big_array[:, 2:4, :, 4].shape
+      (3, 2, 5)</pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Numpy</h2>
+      <h3>Quick Stats</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Useful builtin statistics for numeric arrays</li>
+<li><pre class="prettyprint" data-lang="python">
+      &gt;&gt;&gt; my_data.sum()
+      546.3
+      &gt;&gt;&gt; my_data.mean()
+      21.1
+      &gt;&gt;&gt; my_data.std()
+      8.1</pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Numpy</h2>
+      <h3>Optimized for speed not flexibility</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Unlike Python lists, they cannot be extended or appended to</li>
+<li>Must be created with a given size first, then populated with data</li>
+<li><pre class="prettyprint" data-lang="python">
+      # From a list
+      &gt;&gt;&gt; a_list_arr = np.array([3, 4, 5, ...])
+      &gt;&gt;&gt; a_longer_list = np.array([[1, 2, 3],
+                                    [4, 5, 6]])
+     &gt;&gt;&gt; a_longer_list.shape
+     (2, 1)</pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>Matplotlib</h2>
+      <h3>Once blind, can now see</h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Matplotlib</h2>
+      <h3>Show Me the Things!</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Originally intended to be used with ipython as a Matlab replacement</li>
+<li>Many different ways to interact with plots</li>
+<li>Native SVG support</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Matplotlib</h2>
+      <h3>Show Me the Things</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Many different builtin plot types</li>
+<li>Works very well with numpy</li>
+<li>Allows for many customization paths</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>SciPy</h2>
+      <h3>Blinded by Science</h3>
+    </hgroup>
+  
+</slide>
+
+<slide class="build_lists: true" >
+  
+    <hgroup>
+      <h2>SciPy</h2>
+      <h3>Subroutines Galore</h3>
+    </hgroup>
+    <article ><ul>
+<li>scipy, or Scientific Python fills in much of the blanks</li>
+<li>It has many numerical routines for data processing and analysis</li>
+<li>Many routines are optimized in C or Fortran</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>SciPy</h2>
+      <h3>The Toolset</h3>
+    </hgroup>
+    <article ><p>Some of the many features of scipy:</p>
+<ul class="build">
+<li>Integration</li>
+<li>Linear Algebra</li>
+<li>FFT</li>
+<li>Interpolation</li>
+<li>Signal Processing</li>
+</ul></article>
+ 
+</slide>
+
+
+<slide class="thank-you-slide segue nobackground">
+  <!-- <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside> -->
+  <article class="flexbox vleft auto-fadein">
+    <h2> Thanks everyone for attending!</h2>
+    <p></p>
+  </article>
+  <p data-config-contact class="auto-fadein"> <span>github</span> <a href="http://github.com/sunpowered">SunPowered</a></p>
+  </p>
+</slide>
+
+<slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-56093198-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
